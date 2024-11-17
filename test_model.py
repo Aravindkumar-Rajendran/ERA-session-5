@@ -19,7 +19,7 @@ def test_model_architecture():
     
     # Test parameter count
     total_params = sum(p.numel() for p in model.parameters())
-    assert total_params < 100000, f"Model has {total_params} parameters, should be < 100000"
+    assert total_params < 25000, f"Model has {total_params} parameters, should be < 25000"
 
 def test_model_accuracy():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -51,7 +51,8 @@ def test_model_accuracy():
             correct += (predicted == target).sum().item()
     
     accuracy = 100 * correct / total
-    assert accuracy > 80, f"Model accuracy is {accuracy}%, should be > 80%"
+    print(f"Model accuracy is {accuracy}%")
+    assert accuracy > 95, f"Model accuracy is {accuracy}%, should be > 95%"
 
 if __name__ == "__main__":
     pytest.main([__file__]) 
