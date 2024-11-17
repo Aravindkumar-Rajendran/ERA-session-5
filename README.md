@@ -9,6 +9,10 @@ This project implements a simple Convolutional Neural Network (CNN) for MNIST di
 ├── model.py # CNN model architecture
 ├── train.py # Training script
 ├── test_model.py # Testing and validation scripts
+├── augmentation.py # Data augmentation script
+├── requirements.txt # Project dependencies
+├── README.md # Project documentation
+├── samples/ # Directory for augmented samples
 ├── .github/
 │ └── workflows/
 │ └── ml-pipeline.yml # GitHub Actions workflow
@@ -26,8 +30,8 @@ This project implements a simple Convolutional Neural Network (CNN) for MNIST di
 
 1. Clone the repository:
 ```
-git clone <your-repository-url>
-cd <repository-name>
+git clone https://github.com/Aravindkumar-Rajendran/ERA-v3-session-5.git
+cd ERA-v3-session-5
 ```
 
 2. Create and activate a virtual environment:
@@ -45,7 +49,7 @@ source venv/bin/activate
 
 3. Install the dependencies:
 ```
-pip install torch torchvision pytest
+pip install -r requirements.txt
 ```
 
 ## Running Locally
@@ -67,6 +71,9 @@ This will verify:
 - Model architecture (input/output dimensions)
 - Parameter count (< 25000)
 - Model accuracy (> 95%)
+- Model robustness: Accuracy on augmented data (> 90%)
+- Prediction confidence: High confidence for correct predictions (> 0.8)
+- Model stability: Predictions remain stable under small input perturbations
 
 ## CI/CD Pipeline
 
