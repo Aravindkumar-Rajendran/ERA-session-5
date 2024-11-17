@@ -3,6 +3,7 @@ from torchvision import datasets, transforms
 from model import MNISTNet
 import pytest
 import glob
+import os
 
 def get_latest_model():
     model_files = glob.glob('mnist_model_*.pth')
