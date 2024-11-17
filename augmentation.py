@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from torchvision.datasets import MNIST
 import os
 import random
+
 def get_augmented_transforms():
     return transforms.Compose([
         transforms.RandomRotation(15),
