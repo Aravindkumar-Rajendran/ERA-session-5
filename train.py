@@ -1,20 +1,17 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torchvision import datasets, transforms
+from torchvision import datasets
 from model import MNISTNet
 from datetime import datetime
-import os
+from augmentation import get_augmented_transforms
 
 def train():
     # Set device
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
-    # Data loading
-    transform = transforms.Compose([
-        transforms.ToTensor(),
-        transforms.Normalize((0.1307,), (0.3081,))
-    ])
+    # Data loading with augmentation
+    transform = get_augmented_transforms()
     
     train_dataset = datasets.MNIST('./data', train=True, download=True, transform=transform)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
